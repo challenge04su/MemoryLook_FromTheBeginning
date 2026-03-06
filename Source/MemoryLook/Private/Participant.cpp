@@ -145,10 +145,11 @@ void AParticipant::Move(const FInputActionValue& value)
 
 void AParticipant::StartJump(const FInputActionValue& value)
 {
-	if (value.Get<bool>())
+	if (value.Get<bool>() && !bIsProning)
 	{
 		Jump();
 	}
+
 }
 
 void AParticipant::StopJump(const FInputActionValue& value)
@@ -157,6 +158,7 @@ void AParticipant::StopJump(const FInputActionValue& value)
 	{
 		StopJumping();
 	}
+
 }
 
 void AParticipant::Look(const FInputActionValue& value)
